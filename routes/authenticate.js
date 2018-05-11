@@ -6,10 +6,12 @@ const User = require('../models/user.js');
 const config = require('./config.js');
 
 passport.serializeUser((user, done) => {
+    // req.session.passport.user
     done(null, user.id);
 });
     
 passport.deserializeUser((id, done) => {
+    // req.user
     User.findById(id, (err, user) => {
         done(err, user); 
     });

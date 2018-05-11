@@ -12,8 +12,10 @@ const bodyParser = require('body-parser');
 const flash = require("connect-flash");
 const routes = require('./routes/route');
 const bcrypt = require('bcryptjs');
+const favicon = require('serve-favicon');
 
 const app = express();
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.engine('handlebars', exphbs({
 	defaultLayout: 'layout',
