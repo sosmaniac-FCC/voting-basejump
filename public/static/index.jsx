@@ -22,7 +22,7 @@ $(() => {
         }
         else {
             return (
-                <a className={"navbar-nav my-2 mr-5"}>
+                <a className={"navbar-nav my-2 mr-5 hidden-xs"}>
                     <h4 className={"mb-0 text-primary"}>Hello {userVars[0]}!</h4>
                 </a>
             );
@@ -35,7 +35,7 @@ $(() => {
         }
         else {
             return (
-                <li className={"nav-item ml-3 active"}>
+                <li className={"nav-item ml-2 active"}>
                     <button className={"btn btn-outline-info nav-link"} onClick={props.handleProfile}>Profile</button>
                 </li>
             );
@@ -65,23 +65,21 @@ $(() => {
         
         render() {
             return (
-                <nav className={"navbar navbar-expand-md navbar-light bg-light border-top-0 border-left-0 border-right-0 border border-primary"}>
-                    <h1 className={"navbar-brand ml-1 text-primary"} onClick={this.handleMain.bind(this)} style={{cursor: "pointer"}}>Full Stack Voting App</h1>
-                    <div className={"collapse navbar-collapse"} id="navbarSupportedContent">
-                        <ul className={"navbar-nav mr-auto"}>
-                            <li className={"nav-item ml-3 active"}>
-                                <button className={"btn btn-outline-success nav-link"} onClick={this.handleMain.bind(this)}>Home<span className={"sr-only"}>(current)</span></button>
-                            </li>
-                            <ProfileButton isLoggedIn={this.props.isLoggedIn} handleProfile={this.handleProfile.bind(this)}/>
-                            <li className={"nav-item ml-3 active"}>
-                                <button className={"btn btn-outline-secondary nav-link"} onClick={!this.props.isLoggedIn ? this.handleLogin.bind(this) : this.handleLogout.bind(this)}>{!this.props.isLoggedIn ? 'Login/Register' : 'Logout'}</button>
-                            </li>
-                        </ul>
-                        <HelloMessage isLoggedIn={this.props.isLoggedIn} />
-                        <a className={"navbar-nav ml-5 my-2 my-lg-0"}>
-                            <p className={"mb-0 text-muted"} style={{fontSize: "10px"}}>Coded by John Simmons</p>
-                        </a>
-                    </div>
+                <nav className={"navbar navbar-expand navbar-light bg-light border-top-0 border-left-0 border-right-0 border border-primary"}>
+                    <h1 className={"navbar-brand ml-0 text-primary"} onClick={this.handleMain.bind(this)} style={{cursor: "pointer"}}>Voting App</h1>
+                    <ul className={"navbar-nav mr-auto"}>
+                        <li className={"nav-item ml-2 active"}>
+                            <button className={"btn btn-outline-success nav-link"} onClick={this.handleMain.bind(this)}>Home<span className={"sr-only"}>(current)</span></button>
+                        </li>
+                        <ProfileButton isLoggedIn={this.props.isLoggedIn} handleProfile={this.handleProfile.bind(this)}/>
+                        <li className={"nav-item ml-2 active"}>
+                            <button className={"btn btn-outline-secondary nav-link"} onClick={!this.props.isLoggedIn ? this.handleLogin.bind(this) : this.handleLogout.bind(this)}>{!this.props.isLoggedIn ? 'Login' : 'Logout'}</button>
+                        </li>
+                    </ul>
+                    <HelloMessage isLoggedIn={this.props.isLoggedIn} />
+                    <a className={"hidden-md"}>
+                        <p className={"mb-0 text-muted"} style={{fontSize: "10px"}}>Coded by John Simmons</p>
+                    </a>
                 </nav>
             );
         }
@@ -121,13 +119,13 @@ $(() => {
         render() {
             return (
                 <div className={"col-12 justify-content-center rounded bg-light border border-primary my-3 mx-auto py-4"}>
-                    <div className={"row justify-content-center"}>
-                        <img src="https://avatars3.githubusercontent.com/u/26840799?v=3&s=400" alt="sosmaniac-FCC Profile Image" height="42" width="42" className={"rounded mr-3"} />
+                    <div className={"row justify-content-center mb-3"}>
+                        <img src="https://avatars3.githubusercontent.com/u/26840799?v=3&s=400" alt="sosmaniac-FCC Profile Image" height="42" width="42" className={"rounded mr-3 hidden-xxs"} />
                         <h1 className={"text-muted"}>FCC Voting</h1>
-                        <img src="https://avatars3.githubusercontent.com/u/9892522?s=280&v=4" alt="FreeCodeCamp Campfire" height="42" width="42" className={"rounded ml-3"} />
+                        <img src="https://avatars3.githubusercontent.com/u/9892522?s=280&v=4" alt="FreeCodeCamp Campfire" height="42" width="42" className={"rounded ml-3 hidden-xxs"} />
                     </div>
                     <h6 className={"text-info text-center"}>Currently hosting {this.props.totalPolls} poll{this.props.totalPolls > 1 ? 's' : ''}.</h6>
-                    <h6 className={"text-info text-center"}>Click any poll below to view results and vote.</h6>
+                    <h6 className={"text-info text-center"}>Click any poll below to view its results and vote.</h6>
                     <HeaderOptions isLoggedIn={this.props.isLoggedIn} handleMyPolls={this.handleMyPolls.bind(this)} handleCreate={this.handleCreate.bind(this)} handleLR={this.handleLoginRegister.bind(this)} />
                 </div>
             );
@@ -266,6 +264,7 @@ $(() => {
         );
     }
     
+    // removed: <th onClick={props.handleClick} id={item._id}>{item.creatorName}</th> from 'user'
     function TableContents(props) {
         let items = [];
         
@@ -288,7 +287,6 @@ $(() => {
                     <tr id={item._id} className={"text-info bg-light"} style={{cursor: "pointer"}} key={item._id}>
                         <th onClick={props.handleClick} scope="row" id={item._id}>{i + 1}</th>
                         <th onClick={props.handleClick} id={item._id}>{item.question}</th>
-                        <th onClick={props.handleClick} id={item._id}>{item.creatorName}</th>
                         <th style={{pointerEvents: "none"}}><button id={item._id} onClick={props.handleDelete} style={{pointerEvents: "auto"}} className={"btn btn-danger"}>Delete</button></th>
                     </tr>
                 );
@@ -301,6 +299,7 @@ $(() => {
         }
     }
     
+    // removed: <th>Created By</th> from 'user'
     function DynamicTableHead(props) {
         if (props.query == 'all') {
             return (
@@ -316,7 +315,6 @@ $(() => {
                 <tr>
                     <th>#</th>
                     <th>Poll Name</th>
-                    <th>Created By</th>
                     <th>Options</th>
                 </tr>
             );
@@ -336,14 +334,10 @@ $(() => {
         }
         
         handleDelete(e) {
-            console.log("Testing");
-            
             $.ajax({
                 url: host + 'mypolls/' + e.target.id,
                 type: 'DELETE',
                 success: (result) => {
-                    console.log(result);
-                    
                     $.get('/' + this.props.query, (update) => {
                         this.setState({
                             data: update
@@ -367,7 +361,7 @@ $(() => {
         
         render() {
             return (
-                <table className={"table"}>
+                <table className={"table table-hover"}>
                     <thead className={"text-primary bg-light"}>
                         <DynamicTableHead query={this.props.query} />
                     </thead>
@@ -485,7 +479,7 @@ $(() => {
             {{#if error_msg}}<div class="alert alert-danger rounded-0 text-center">{{error_msg}}</div>{{/if}}
             {{#if error}}<div class="alert alert-danger rounded-0 text-center">{{error}}</div>{{/if}}
             {{#if success}}<div class="alert alert-success rounded-0 text-center">{{success}}</div>{{/if}}`} />
-                    <div className={"container col-4"}>
+                    <div className={"container col-xs-10 col-sm-8 col-md-6 col-lg-4"}>
                         <div className={"col-12 justy-content-center bg-light rounded border border-primary mt-4 pb-3 mx-auto"}>
                             <div className={"row"}>
                                 <div className={"col bg-dark"}>
@@ -536,7 +530,7 @@ $(() => {
             return (
                 <div>
                     <MenuBar isLoggedIn={this.state.isLoggedIn} />
-                    <div className={"container col-4"}>
+                    <div className={"container col-xs-10 col-sm-8 col-md-6 col-lg-4"}>
                         <div className={"col-12 justy-content-center bg-light rounded border border-primary mt-4 mx-auto"}>
                             <div className={"row mb-4"}>
                                 <div className={"col bg-info"} onClick={this.handleLoginToggle.bind(this)}>
@@ -601,7 +595,7 @@ $(() => {
             {{#if error_msg}}<div class="alert alert-danger rounded-0 text-center">{{error_msg}}</div>{{/if}}
             {{#if error}}<div class="alert alert-danger rounded-0 text-center">{{error}}</div>{{/if}}
             {{#if success}}<div class="alert alert-success rounded-0 text-center">{{success}}</div>{{/if}}`} />
-                    <div className={"container col-4"}>
+                    <div className={"container col-xs-10 col-sm-8 col-md-6 col-lg-4"}>
                         <div className={"col-12 justify-content-center bg-light border border-info rounded ml-2 mt-4 py-2"}>
                             <GetContent whatContent={this.state.whatContent} isTwitter={this.state.isTwitter} />
                             <hr />
@@ -635,7 +629,7 @@ $(() => {
             return (
                 <div>
                     <MenuBar isLoggedIn={this.state.isLoggedIn} />
-                    <div className={"container col-4"}>
+                    <div className={"container col-xs-10 col-sm-8 col-md-6 col-lg-4"}>
                         <div className={"col-12 justify-content-center bg-light border border-info rounded ml-2 mt-4 py-2"}>
                             <GenerateHandlebarsAlert type={'stacked-group'} source={`{{#if errors}}{{#each errors}}<div class="alert alert-danger rounded-0 p-0 text-center">{{msg}}</div>{{/each}}{{/if}}`} />
                             <GetContent whatContent={this.state.whatContent} isTwitter={this.state.isTwitter} />
@@ -662,13 +656,13 @@ $(() => {
         componentWillMount() {
             this.contents = [];
             for (let i = 0; i < this.props.options; i++) {
-                this.contents.push(<input type="text" key={i + 1} name={"input" + (i + 1)} id={"input" + (i + 1)} className={"col-5 d-block mx-auto"} placeholder="..." />);
+                this.contents.push(<input type="text" key={i + 1} name={"input" + (i + 1)} id={"input" + (i + 1)} className={"col-6 d-block mx-auto"} placeholder="..." />);
             }
         }
         
         componentWillUpdate(nextProps, nextState) {
             if (this.props.options < nextProps.options) {
-                this.contents.push(<input type="text" key={nextProps.options} name={"input" + nextProps.options} id={"input" + nextProps.options} className={"col-5 d-block mx-auto"} placeholder="..." />);
+                this.contents.push(<input type="text" key={nextProps.options} name={"input" + nextProps.options} id={"input" + nextProps.options} className={"col-6 d-block mx-auto"} placeholder="..." />);
             }
             else {
                 this.contents.pop();
@@ -727,11 +721,11 @@ $(() => {
             return (
                 <div>
                     <MenuBar isLoggedIn={this.state.isLoggedIn} />
-                    <div className={"container col-6 mt-3"}>
+                    <div className={"container col-xs-12 col-sm-10 col-md-8 col-lg-6 mt-3"}>
                         <div id="error-hook" className={"bg-light border border-primary rounded justify-content-center py-2"}>
                             <GenerateHandlebarsAlert type={'stacked-group'} source={`{{#if errors}}{{#each errors}}<div class="alert alert-danger rounded-0 p-0 text-center">{{msg}}</div>{{/each}}{{/if}}`} />
                             <p className={"text-center mb-1"}>What is the question?</p>
-                            <textarea form="createForm" name="question" id="question" rows="4" cols="50" className={"rounded d-block mx-auto"}></textarea>
+                            <textarea form="createForm" name="question" id="question" rows="4" cols="40" className={"rounded d-block mx-auto"}></textarea>
                             <form method="post" action={host + "create"} id="createForm" className={"justify-content-center"} onKeyPress={this.handleKeyPress.bind(this)}>
                                 <p className={"text-center mt-3 mb-1"}>What are the options?</p>
                                 <DynamicForm options={this.state.availableOptions} />
@@ -778,7 +772,11 @@ $(() => {
         }
         
         componentDidMount() {
+            console.log('mount');
+            
             $.get('/poll/request/' + this.state.pollId, (metadata) => {
+                console.log(metadata);
+                
                 this.setState({
                     question: metadata.question,
                     options: metadata.options,
@@ -791,61 +789,51 @@ $(() => {
         
         retrieveData() {
             let datasets = [];
-        
+            
             for (let i = 0; i < this.state.options.length; i++) {
                 datasets[i] = {
                     label: this.state.options[i],
-                    data: [this.state.votes[i]],
+                    data: this.state.votes[i], // removed: [...]
                     backgroundColor: this.state.bgArray[i],
-                    borderColor: this.state.bdArray[i],
-                    borderWidth: 1
+                    borderColor: this.state.bdArray[i]
                 };
             }
             
-            const data = {
-                labels: this.state.options,
-                datasets: datasets
-            };
-            
-            return data;
+            return datasets;
         }
         
         componentDidUpdate() {
-            var ctx = document.getElementById("pollChart").getContext("2d");
-            const data = this.retrieveData();
-            
-            window.poll = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'top',
-                        onClick: (e) => e.stopPropagation()
-                    },
-                    title: {
-                        display: true,
-                        text: 'Poll Results'
-                    }, 
-                    scales: {
-                        yAxes: [{
-                            type: 'linear',
-                            ticks: {
-                                beginAtZero: true,
-                                stepSize: 1
+            $(document).ready(() => {
+                if (this.state.votes.filter(i => i !== 0).length !== 0) {
+                    const ctx = document.getElementById("pollChart").getContext("2d");
+                    const data = this.retrieveData();
+                    
+                    window.poll = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: data.map(item => item.data),
+                                backgroundColor: data.map(item => item.backgroundColor),
+                                label: 'Poll Data'
+                            }],
+                            labels: data.map(item => item.label)
+                        },
+                        options: {
+                            responsive: false,
+                            legend: {
+                                position: 'top',
+                                onClick: (e) => { e.stopPropagation(); }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Poll Results'
+                            },
+                            animation: {
+                                animationScale: true,
+                                animationRotate: true
                             }
-                        }],
-                        xAxes: [{
-                			categoryPercentage: 1.0,
-                			barPercentage: 0.8,
-                			offset: true,
-                			gridLines: {
-                			    display: true,
-                				offsetGridLines: true,
-                				drawTicks: true
-                			}
-                		}]
-                    }
+                        }
+                    });
                 }
             });
         }
@@ -857,8 +845,6 @@ $(() => {
                 type: 'PUT',
                 data: {voteIndex: this.state.voteIndex},
                 success: (result) => {
-                    console.log(result);
-                    
                     if (result.errors) {
                         const element = document.createElement("div");
                         element.className = "alert alert-danger text-center mt-2";
@@ -894,23 +880,23 @@ $(() => {
                     <div className={"container col-10"}>
                         <div className={"bg-light rounded border border-info p-2 mt-3"}>
                             <div className={"row m-2"}>
-                                <div className={"col-6"} id="error-hook">
+                                <div className={"col-md-6 col-sm-12"} id="error-hook">
                                     <GenerateHandlebarsAlert type={'stacked-group'} source={`{{#if errors}}{{#each errors}}<div class="alert alert-danger rounded-0 p-0 text-center">{{msg}}</div>{{/each}}{{/if}}`} />
                                     <h3 className={"text-dark text-center"}>{this.state.question}</h3>
-                                    <div className={"row justify-content-center mb-4"}>
+                                    <div className={"row justify-content-center mb-0"}>
                                         <div className={"btn-group my-3"}>
-                                            <button type="button" id="dropdown-header" className={"btn btn-secondary btn-sm dropdown-toggle mr-1"} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Voting Options</button>
+                                            <button type="button" id="dropdown-header" className={"btn btn-secondary btn-sm dropdown-toggle mr-1"} style={{borderRadius: "5px 0 0 5px"}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Voting Options</button>
                                             <div className={"dropdown-menu"}>
                                                 <DynamicDropdown handleSelection={this.handleSelection.bind(this)} options={this.state.options}/>
                                             </div>
                                         </div>
-                                        <button onClick={this.handleVote.bind(this)} id="submit" className={"btn btn-success ml-1 mt-3"} style={{height: "10%", fontSize: "10px", borderRadius: "50%"}}>Submit</button>
+                                        <button onClick={this.handleVote.bind(this)} id="submit" className={"btn btn-success mt-3"} style={{height: "31px", fontSize: "10px", borderRadius: "0 5px 5px 0"}}>Submit</button>
                                     </div>
                                     <hr />
                                     <form method="post" action={host + 'poll/' + this.state.pollId} className={"justify-content-center mb-4"}>
                                         <div className={"form-group"}>
                                             <p className={"text-center mb-1"}>Prefer to create and vote for a new option?</p>
-                                            <input type="text" name="new-option" id="new-option" className={"col-6 d-block mx-auto"} placeholder="Type it out here..." />
+                                            <input type="text" name="new-option" id="new-option" className={"col-xs-10 col-sm-8 d-block mx-auto"} placeholder="Type it out here..." />
                                         </div>
                                         <button type="submit" name="optionify" className={"btn btn-primary d-block mx-auto"}>Create and Submit</button>
                                     </form>
@@ -919,8 +905,8 @@ $(() => {
                                         <span className={"fa fa-twitter"}></span> Tweet this Poll!
                                     </a>
                                 </div>
-                                <div className={"col-6"}>
-                                    <canvas id="pollChart" width="300" height="300"></canvas>
+                                <div className={"col-md-6 col-sm-12"}>
+                                    { this.state.votes.filter(i => i !== 0).length !== 0 ? <canvas id="pollChart" height={350} width={275}></canvas> : <p className={"text-center my-5"}>Be the first to vote!</p>}
                                 </div>
                             </div>
                         </div>

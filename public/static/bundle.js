@@ -18169,7 +18169,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
         } else {
             return _react2.default.createElement(
                 'a',
-                { className: "navbar-nav my-2 mr-5" },
+                { className: "navbar-nav my-2 mr-5 hidden-xs" },
                 _react2.default.createElement(
                     'h4',
                     { className: "mb-0 text-primary" },
@@ -18187,7 +18187,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
         } else {
             return _react2.default.createElement(
                 'li',
-                { className: "nav-item ml-3 active" },
+                { className: "nav-item ml-2 active" },
                 _react2.default.createElement(
                     'button',
                     { className: "btn btn-outline-info nav-link", onClick: props.handleProfile },
@@ -18231,52 +18231,48 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
             value: function render() {
                 return _react2.default.createElement(
                     'nav',
-                    { className: "navbar navbar-expand-md navbar-light bg-light border-top-0 border-left-0 border-right-0 border border-primary" },
+                    { className: "navbar navbar-expand navbar-light bg-light border-top-0 border-left-0 border-right-0 border border-primary" },
                     _react2.default.createElement(
                         'h1',
-                        { className: "navbar-brand ml-1 text-primary", onClick: this.handleMain.bind(this), style: { cursor: "pointer" } },
-                        'Full Stack Voting App'
+                        { className: "navbar-brand ml-0 text-primary", onClick: this.handleMain.bind(this), style: { cursor: "pointer" } },
+                        'Voting App'
                     ),
                     _react2.default.createElement(
-                        'div',
-                        { className: "collapse navbar-collapse", id: 'navbarSupportedContent' },
+                        'ul',
+                        { className: "navbar-nav mr-auto" },
                         _react2.default.createElement(
-                            'ul',
-                            { className: "navbar-nav mr-auto" },
+                            'li',
+                            { className: "nav-item ml-2 active" },
                             _react2.default.createElement(
-                                'li',
-                                { className: "nav-item ml-3 active" },
+                                'button',
+                                { className: "btn btn-outline-success nav-link", onClick: this.handleMain.bind(this) },
+                                'Home',
                                 _react2.default.createElement(
-                                    'button',
-                                    { className: "btn btn-outline-success nav-link", onClick: this.handleMain.bind(this) },
-                                    'Home',
-                                    _react2.default.createElement(
-                                        'span',
-                                        { className: "sr-only" },
-                                        '(current)'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(ProfileButton, { isLoggedIn: this.props.isLoggedIn, handleProfile: this.handleProfile.bind(this) }),
-                            _react2.default.createElement(
-                                'li',
-                                { className: "nav-item ml-3 active" },
-                                _react2.default.createElement(
-                                    'button',
-                                    { className: "btn btn-outline-secondary nav-link", onClick: !this.props.isLoggedIn ? this.handleLogin.bind(this) : this.handleLogout.bind(this) },
-                                    !this.props.isLoggedIn ? 'Login/Register' : 'Logout'
+                                    'span',
+                                    { className: "sr-only" },
+                                    '(current)'
                                 )
                             )
                         ),
-                        _react2.default.createElement(HelloMessage, { isLoggedIn: this.props.isLoggedIn }),
+                        _react2.default.createElement(ProfileButton, { isLoggedIn: this.props.isLoggedIn, handleProfile: this.handleProfile.bind(this) }),
                         _react2.default.createElement(
-                            'a',
-                            { className: "navbar-nav ml-5 my-2 my-lg-0" },
+                            'li',
+                            { className: "nav-item ml-2 active" },
                             _react2.default.createElement(
-                                'p',
-                                { className: "mb-0 text-muted", style: { fontSize: "10px" } },
-                                'Coded by John Simmons'
+                                'button',
+                                { className: "btn btn-outline-secondary nav-link", onClick: !this.props.isLoggedIn ? this.handleLogin.bind(this) : this.handleLogout.bind(this) },
+                                !this.props.isLoggedIn ? 'Login' : 'Logout'
                             )
+                        )
+                    ),
+                    _react2.default.createElement(HelloMessage, { isLoggedIn: this.props.isLoggedIn }),
+                    _react2.default.createElement(
+                        'a',
+                        { className: "hidden-md" },
+                        _react2.default.createElement(
+                            'p',
+                            { className: "mb-0 text-muted", style: { fontSize: "10px" } },
+                            'Coded by John Simmons'
                         )
                     )
                 );
@@ -18343,14 +18339,14 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     { className: "col-12 justify-content-center rounded bg-light border border-primary my-3 mx-auto py-4" },
                     _react2.default.createElement(
                         'div',
-                        { className: "row justify-content-center" },
-                        _react2.default.createElement('img', { src: 'https://avatars3.githubusercontent.com/u/26840799?v=3&s=400', alt: 'sosmaniac-FCC Profile Image', height: '42', width: '42', className: "rounded mr-3" }),
+                        { className: "row justify-content-center mb-3" },
+                        _react2.default.createElement('img', { src: 'https://avatars3.githubusercontent.com/u/26840799?v=3&s=400', alt: 'sosmaniac-FCC Profile Image', height: '42', width: '42', className: "rounded mr-3 hidden-xxs" }),
                         _react2.default.createElement(
                             'h1',
                             { className: "text-muted" },
                             'FCC Voting'
                         ),
-                        _react2.default.createElement('img', { src: 'https://avatars3.githubusercontent.com/u/9892522?s=280&v=4', alt: 'FreeCodeCamp Campfire', height: '42', width: '42', className: "rounded ml-3" })
+                        _react2.default.createElement('img', { src: 'https://avatars3.githubusercontent.com/u/9892522?s=280&v=4', alt: 'FreeCodeCamp Campfire', height: '42', width: '42', className: "rounded ml-3 hidden-xxs" })
                     ),
                     _react2.default.createElement(
                         'h6',
@@ -18364,7 +18360,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(
                         'h6',
                         { className: "text-info text-center" },
-                        'Click any poll below to view results and vote.'
+                        'Click any poll below to view its results and vote.'
                     ),
                     _react2.default.createElement(HeaderOptions, { isLoggedIn: this.props.isLoggedIn, handleMyPolls: this.handleMyPolls.bind(this), handleCreate: this.handleCreate.bind(this), handleLR: this.handleLoginRegister.bind(this) })
                 );
@@ -18598,6 +18594,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
         );
     }
 
+    // removed: <th onClick={props.handleClick} id={item._id}>{item.creatorName}</th> from 'user'
     function TableContents(props) {
         var items = [];
 
@@ -18642,11 +18639,6 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     ),
                     _react2.default.createElement(
                         'th',
-                        { onClick: props.handleClick, id: item._id },
-                        item.creatorName
-                    ),
-                    _react2.default.createElement(
-                        'th',
                         { style: { pointerEvents: "none" } },
                         _react2.default.createElement(
                             'button',
@@ -18663,6 +18655,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
         }
     }
 
+    // removed: <th>Created By</th> from 'user'
     function DynamicTableHead(props) {
         if (props.query == 'all') {
             return _react2.default.createElement(
@@ -18701,11 +18694,6 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                 _react2.default.createElement(
                     'th',
                     null,
-                    'Created By'
-                ),
-                _react2.default.createElement(
-                    'th',
-                    null,
                     'Options'
                 )
             );
@@ -18733,14 +18721,10 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
             value: function handleDelete(e) {
                 var _this5 = this;
 
-                console.log("Testing");
-
                 _jquery2.default.ajax({
                     url: host + 'mypolls/' + e.target.id,
                     type: 'DELETE',
                     success: function success(result) {
-                        console.log(result);
-
                         _jquery2.default.get('/' + _this5.props.query, function (update) {
                             _this5.setState({
                                 data: update
@@ -18770,7 +18754,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
             value: function render() {
                 return _react2.default.createElement(
                     'table',
-                    { className: "table" },
+                    { className: "table table-hover" },
                     _react2.default.createElement(
                         'thead',
                         { className: "text-primary bg-light" },
@@ -18931,7 +18915,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(GenerateHandlebarsAlert, { type: 'blocked-single', source: '{{#if success_msg}}<div class="alert alert-success rounded-0 text-center">{{success_msg}}</div>{{/if}}\n            {{#if error_msg}}<div class="alert alert-danger rounded-0 text-center">{{error_msg}}</div>{{/if}}\n            {{#if error}}<div class="alert alert-danger rounded-0 text-center">{{error}}</div>{{/if}}\n            {{#if success}}<div class="alert alert-success rounded-0 text-center">{{success}}</div>{{/if}}' }),
                     _react2.default.createElement(
                         'div',
-                        { className: "container col-4" },
+                        { className: "container col-xs-10 col-sm-8 col-md-6 col-lg-4" },
                         _react2.default.createElement(
                             'div',
                             { className: "col-12 justy-content-center bg-light rounded border border-primary mt-4 pb-3 mx-auto" },
@@ -19033,7 +19017,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(MenuBar, { isLoggedIn: this.state.isLoggedIn }),
                     _react2.default.createElement(
                         'div',
-                        { className: "container col-4" },
+                        { className: "container col-xs-10 col-sm-8 col-md-6 col-lg-4" },
                         _react2.default.createElement(
                             'div',
                             { className: "col-12 justy-content-center bg-light rounded border border-primary mt-4 mx-auto" },
@@ -19157,7 +19141,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(GenerateHandlebarsAlert, { type: 'blocked-single', source: '{{#if success_msg}}<div class="alert alert-success rounded-0 text-center">{{success_msg}}</div>{{/if}}\n            {{#if error_msg}}<div class="alert alert-danger rounded-0 text-center">{{error_msg}}</div>{{/if}}\n            {{#if error}}<div class="alert alert-danger rounded-0 text-center">{{error}}</div>{{/if}}\n            {{#if success}}<div class="alert alert-success rounded-0 text-center">{{success}}</div>{{/if}}' }),
                     _react2.default.createElement(
                         'div',
-                        { className: "container col-4" },
+                        { className: "container col-xs-10 col-sm-8 col-md-6 col-lg-4" },
                         _react2.default.createElement(
                             'div',
                             { className: "col-12 justify-content-center bg-light border border-info rounded ml-2 mt-4 py-2" },
@@ -19207,7 +19191,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(MenuBar, { isLoggedIn: this.state.isLoggedIn }),
                     _react2.default.createElement(
                         'div',
-                        { className: "container col-4" },
+                        { className: "container col-xs-10 col-sm-8 col-md-6 col-lg-4" },
                         _react2.default.createElement(
                             'div',
                             { className: "col-12 justify-content-center bg-light border border-info rounded ml-2 mt-4 py-2" },
@@ -19246,14 +19230,14 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
             value: function componentWillMount() {
                 this.contents = [];
                 for (var i = 0; i < this.props.options; i++) {
-                    this.contents.push(_react2.default.createElement('input', { type: 'text', key: i + 1, name: "input" + (i + 1), id: "input" + (i + 1), className: "col-5 d-block mx-auto", placeholder: '...' }));
+                    this.contents.push(_react2.default.createElement('input', { type: 'text', key: i + 1, name: "input" + (i + 1), id: "input" + (i + 1), className: "col-6 d-block mx-auto", placeholder: '...' }));
                 }
             }
         }, {
             key: 'componentWillUpdate',
             value: function componentWillUpdate(nextProps, nextState) {
                 if (this.props.options < nextProps.options) {
-                    this.contents.push(_react2.default.createElement('input', { type: 'text', key: nextProps.options, name: "input" + nextProps.options, id: "input" + nextProps.options, className: "col-5 d-block mx-auto", placeholder: '...' }));
+                    this.contents.push(_react2.default.createElement('input', { type: 'text', key: nextProps.options, name: "input" + nextProps.options, id: "input" + nextProps.options, className: "col-6 d-block mx-auto", placeholder: '...' }));
                 } else {
                     this.contents.pop();
                 }
@@ -19327,7 +19311,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     _react2.default.createElement(MenuBar, { isLoggedIn: this.state.isLoggedIn }),
                     _react2.default.createElement(
                         'div',
-                        { className: "container col-6 mt-3" },
+                        { className: "container col-xs-12 col-sm-10 col-md-8 col-lg-6 mt-3" },
                         _react2.default.createElement(
                             'div',
                             { id: 'error-hook', className: "bg-light border border-primary rounded justify-content-center py-2" },
@@ -19337,7 +19321,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                 { className: "text-center mb-1" },
                                 'What is the question?'
                             ),
-                            _react2.default.createElement('textarea', { form: 'createForm', name: 'question', id: 'question', rows: '4', cols: '50', className: "rounded d-block mx-auto" }),
+                            _react2.default.createElement('textarea', { form: 'createForm', name: 'question', id: 'question', rows: '4', cols: '40', className: "rounded d-block mx-auto" }),
                             _react2.default.createElement(
                                 'form',
                                 { method: 'post', action: host + "create", id: 'createForm', className: "justify-content-center", onKeyPress: this.handleKeyPress.bind(this) },
@@ -19420,7 +19404,11 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
             value: function componentDidMount() {
                 var _this18 = this;
 
+                console.log('mount');
+
                 _jquery2.default.get('/poll/request/' + this.state.pollId, function (metadata) {
+                    console.log(metadata);
+
                     _this18.setState({
                         question: metadata.question,
                         options: metadata.options,
@@ -19438,67 +19426,67 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                 for (var i = 0; i < this.state.options.length; i++) {
                     datasets[i] = {
                         label: this.state.options[i],
-                        data: [this.state.votes[i]],
+                        data: this.state.votes[i], // removed: [...]
                         backgroundColor: this.state.bgArray[i],
-                        borderColor: this.state.bdArray[i],
-                        borderWidth: 1
+                        borderColor: this.state.bdArray[i]
                     };
                 }
 
-                var data = {
-                    labels: this.state.options,
-                    datasets: datasets
-                };
-
-                return data;
+                return datasets;
             }
         }, {
             key: 'componentDidUpdate',
             value: function componentDidUpdate() {
-                var ctx = document.getElementById("pollChart").getContext("2d");
-                var data = this.retrieveData();
+                var _this19 = this;
 
-                window.poll = new _chart2.default(ctx, {
-                    type: 'bar',
-                    data: data,
-                    options: {
-                        responsive: true,
-                        legend: {
-                            position: 'top',
-                            onClick: function onClick(e) {
-                                return e.stopPropagation();
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Poll Results'
-                        },
-                        scales: {
-                            yAxes: [{
-                                type: 'linear',
-                                ticks: {
-                                    beginAtZero: true,
-                                    stepSize: 1
-                                }
-                            }],
-                            xAxes: [{
-                                categoryPercentage: 1.0,
-                                barPercentage: 0.8,
-                                offset: true,
-                                gridLines: {
+                (0, _jquery2.default)(document).ready(function () {
+                    if (_this19.state.votes.filter(function (i) {
+                        return i !== 0;
+                    }).length !== 0) {
+                        var ctx = document.getElementById("pollChart").getContext("2d");
+                        var data = _this19.retrieveData();
+
+                        window.poll = new _chart2.default(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: data.map(function (item) {
+                                        return item.data;
+                                    }),
+                                    backgroundColor: data.map(function (item) {
+                                        return item.backgroundColor;
+                                    }),
+                                    label: 'Poll Data'
+                                }],
+                                labels: data.map(function (item) {
+                                    return item.label;
+                                })
+                            },
+                            options: {
+                                responsive: false,
+                                legend: {
+                                    position: 'top',
+                                    onClick: function onClick(e) {
+                                        e.stopPropagation();
+                                    }
+                                },
+                                title: {
                                     display: true,
-                                    offsetGridLines: true,
-                                    drawTicks: true
+                                    text: 'Poll Results'
+                                },
+                                animation: {
+                                    animationScale: true,
+                                    animationRotate: true
                                 }
-                            }]
-                        }
+                            }
+                        });
                     }
                 });
             }
         }, {
             key: 'handleVote',
             value: function handleVote() {
-                var _this19 = this;
+                var _this20 = this;
 
                 _jquery2.default.ajax({
                     url: host + 'poll/' + this.state.pollId,
@@ -19506,8 +19494,6 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                     type: 'PUT',
                     data: { voteIndex: this.state.voteIndex },
                     success: function success(result) {
-                        console.log(result);
-
                         if (result.errors) {
                             var element = document.createElement("div");
                             element.className = "alert alert-danger text-center mt-2";
@@ -19519,7 +19505,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                 parent.removeChild(element);
                             }, 2500);
                         } else {
-                            _this19.setState({
+                            _this20.setState({
                                 votes: result
                             });
                         }
@@ -19553,7 +19539,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                 { className: "row m-2" },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: "col-6", id: 'error-hook' },
+                                    { className: "col-md-6 col-sm-12", id: 'error-hook' },
                                     _react2.default.createElement(GenerateHandlebarsAlert, { type: 'stacked-group', source: '{{#if errors}}{{#each errors}}<div class="alert alert-danger rounded-0 p-0 text-center">{{msg}}</div>{{/each}}{{/if}}' }),
                                     _react2.default.createElement(
                                         'h3',
@@ -19562,13 +19548,13 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                     ),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: "row justify-content-center mb-4" },
+                                        { className: "row justify-content-center mb-0" },
                                         _react2.default.createElement(
                                             'div',
                                             { className: "btn-group my-3" },
                                             _react2.default.createElement(
                                                 'button',
-                                                { type: 'button', id: 'dropdown-header', className: "btn btn-secondary btn-sm dropdown-toggle mr-1", 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                                                { type: 'button', id: 'dropdown-header', className: "btn btn-secondary btn-sm dropdown-toggle mr-1", style: { borderRadius: "5px 0 0 5px" }, 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
                                                 'Voting Options'
                                             ),
                                             _react2.default.createElement(
@@ -19579,7 +19565,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                         ),
                                         _react2.default.createElement(
                                             'button',
-                                            { onClick: this.handleVote.bind(this), id: 'submit', className: "btn btn-success ml-1 mt-3", style: { height: "10%", fontSize: "10px", borderRadius: "50%" } },
+                                            { onClick: this.handleVote.bind(this), id: 'submit', className: "btn btn-success mt-3", style: { height: "31px", fontSize: "10px", borderRadius: "0 5px 5px 0" } },
                                             'Submit'
                                         )
                                     ),
@@ -19595,7 +19581,7 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                                 { className: "text-center mb-1" },
                                                 'Prefer to create and vote for a new option?'
                                             ),
-                                            _react2.default.createElement('input', { type: 'text', name: 'new-option', id: 'new-option', className: "col-6 d-block mx-auto", placeholder: 'Type it out here...' })
+                                            _react2.default.createElement('input', { type: 'text', name: 'new-option', id: 'new-option', className: "col-xs-10 col-sm-8 d-block mx-auto", placeholder: 'Type it out here...' })
                                         ),
                                         _react2.default.createElement(
                                             'button',
@@ -19613,8 +19599,14 @@ var userVars = void 0;if (ele != null) userVars = ele.innerHTML.toString().split
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: "col-6" },
-                                    _react2.default.createElement('canvas', { id: 'pollChart', width: '300', height: '300' })
+                                    { className: "col-md-6 col-sm-12" },
+                                    this.state.votes.filter(function (i) {
+                                        return i !== 0;
+                                    }).length !== 0 ? _react2.default.createElement('canvas', { id: 'pollChart', height: 350, width: 275 }) : _react2.default.createElement(
+                                        'p',
+                                        { className: "text-center my-5" },
+                                        'Be the first to vote!'
+                                    )
                                 )
                             )
                         )

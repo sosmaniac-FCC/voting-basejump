@@ -18,7 +18,9 @@
     "boilerplate"
   ],
   "scripts": {
-    "start": "webpack && node server.js"
+    "sb": "webpack && node server.js",
+    "start": "nodemon server.js",
+    "start:single": "node server.js"
   },
   "author": "John Simmons",
   "license": "MIT",
@@ -40,6 +42,7 @@
     "jquery": "^3.2.1",
     "mongoose": "^4.1.0",
     "morgan": "^1.9.0",
+    "nodemon": "^1.17.4",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
